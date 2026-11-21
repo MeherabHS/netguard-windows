@@ -1,0 +1,51 @@
+# NetGuard allow list - programs that may use the internet from day one.
+# One program per line. %VARIABLES% and * wildcards work. Lines that match no file are skipped,
+# so it is safe to keep entries for apps you don't have. Everything else is blocked until you
+# run `netguard approve`.
+#
+# Data-sending tools in this list (curl, ssh, git-remote-https, node, gh, python) are also
+# routed through the Gatekeeper, which checks every launch before it starts.
+
+# --- Windows core ---------------------------------------------------------
+%SystemRoot%\System32\svchost.exe
+%SystemRoot%\System32\lsass.exe
+%SystemRoot%\explorer.exe
+%SystemRoot%\System32\curl.exe
+
+# --- Browsers --------------------------------------------------------------
+%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.exe
+%ProgramFiles(x86)%\Microsoft\EdgeWebView\Application\*\msedgewebview2.exe
+%ProgramFiles%\Google\Chrome\Application\chrome.exe
+%ProgramFiles%\Mozilla Firefox\firefox.exe
+%ProgramFiles%\BraveSoftware\Brave-Browser\Application\brave.exe
+%LOCALAPPDATA%\Programs\Opera\opera.exe
+%LOCALAPPDATA%\Programs\Opera GX\opera.exe
+
+# --- Developer tools -------------------------------------------------------
+%ProgramFiles%\Git\mingw64\bin\git.exe
+%ProgramFiles%\Git\mingw64\libexec\git-core\git-remote-https.exe
+%ProgramFiles%\Git\mingw64\bin\curl.exe
+%ProgramFiles%\Git\usr\bin\ssh.exe
+%ProgramFiles%\GitHub CLI\gh.exe
+%ProgramFiles%\nodejs\node.exe
+%ProgramFiles%\Microsoft VS Code\Code.exe
+%LOCALAPPDATA%\Programs\Microsoft VS Code\Code.exe
+%USERPROFILE%\.cargo\bin\cargo.exe
+%USERPROFILE%\.cargo\bin\rustup.exe
+%USERPROFILE%\.rustup\toolchains\*\bin\cargo.exe
+%ProgramFiles%\Eclipse Adoptium\*\bin\java.exe
+%LOCALAPPDATA%\Programs\Python\*\python.exe
+%ProgramFiles%\Docker\Docker\Docker Desktop.exe
+%ProgramFiles%\Docker\Docker\resources\com.docker.backend.exe
+%ProgramFiles%\Docker\Docker\resources\bin\docker.exe
+
+# --- Apps ------------------------------------------------------------------
+%ProgramFiles(x86)%\Steam\steam.exe
+%ProgramFiles(x86)%\Steam\bin\cef\cef.win*\steamwebhelper.exe
+%ProgramFiles%\Microsoft Office\Root\Office16\WINWORD.EXE
+%ProgramFiles%\Microsoft Office\Root\Office16\EXCEL.EXE
+%ProgramFiles%\Microsoft Office\Root\Office16\POWERPNT.EXE
+%ProgramFiles%\Microsoft Office\Root\Office16\OUTLOOK.EXE
+%ProgramFiles%\Common Files\Microsoft Shared\ClickToRun\OfficeClickToRun.exe
+%ProgramFiles%\Microsoft OneDrive\OneDrive.exe
+%LOCALAPPDATA%\Microsoft\OneDrive\OneDrive.exe
